@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xray-quality-analyser-python"
+version = "0.0.1"
+description = "X-ray quality analyzer tool for DICOM files"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {text = "MIT"}
+authors = [
+    {name = "Dominik Mairhöfer", email = "dominik@mairhoefer.xyz"}
+]
+keywords = ["xray", "radiography", "dicom", "quality-assessment", "medical-imaging", "machine-learning", "onnx"]
+classifiers = [
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "click>=8.3.1",
+    "coloredlogs>=15.0.1",
+    "numpy>=2.4.2",
+    "onnxruntime>=1.24.1",
+    "opencv-python>=4.13.0.92",
+    "pydicom>=3.0.1",
+    "tqdm>=4.67.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/DominikMa/xray-quality-assessment"
+Repository = "https://github.com/DominikMa/xray-quality-assessment"
+Issues = "https://github.com/DominikMa/xray-quality-assessment/issues"
+
+[project.scripts]
+xray-quality-analyser = "xray_quality_analyser.file_predictor:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
