@@ -1,6 +1,7 @@
 # X-ray Quality Analyser
 
 A tool to analyze the quality of radiographs using ML models.
+If you just want a fast preview, there is a [Web Version](https://dominikma.github.io/xray-quality-assessment-web/) running entirely in the browser.
 
 ## Download the models
 
