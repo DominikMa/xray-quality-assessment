@@ -3,6 +3,8 @@
 A tool to analyze the quality of radiographs using ML models.
 If you just want a fast preview, there is a [Web Version](https://dominikma.github.io/xray-quality-assessment-web/) running entirely in the browser.
 
+<img width="950" height="765" alt="xray-quality-web" src="https://github.com/user-attachments/assets/c78a936f-e1c5-437c-a084-7524eeed6d27" />
+
 ## Download the models
 
 Download the models from [the latest release](https://github.com/DominikMa/xray-quality-assessment/releases/latest) and place all model files in a single folder.
