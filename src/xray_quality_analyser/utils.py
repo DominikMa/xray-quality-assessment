@@ -75,10 +75,20 @@ def ensure_15bit_depth(dicom: FileDataset):
     pixel_array = pixel_array.astype(np.uint16)
     dicom.PixelData = pixel_array.tobytes()
     dicom.BitsStored = 15
+    dicom.HighBit = 14
     return dicom
 
 
 def dicom_to_png(dicom: FileDataset):
+    # The transformed pixel data is written back as native (uncompressed)
+    # bytes. Decode encapsulated data in-place first so that pydicom also
+    # updates the transfer syntax and the Pixel Data element's length flag.
+    if dicom.file_meta.TransferSyntaxUID.is_compressed:
+        dicom.decompress()
+        if dicom.get("LossyImageCompression") == "01":
+            accession_number = dicom.get("AccessionNumber", "<unknown>")
+            print(f"File {accession_number} has been lossy compressed")
+
     dicom = ensure_sop_class_uid(dicom)
     dicom = ensure_photometric_interpretation(dicom)
     dicom = ensure_15bit_depth(dicom)
